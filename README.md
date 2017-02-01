@@ -37,14 +37,31 @@ Some of the stuff covered in the first week:
 - [Numpy](http://www.numpy.org/) - An extremely popular library for scientific computing in python.
 - [Tensorflow](http://tensorflow.org/) - One of the most popular python libraries for creating neural networks. It is maintained by Google.
 
-## fast-style transfer
+### fast-style transfer
 
 Looking at[an existing style transfer deep learning script](https://github.com/lengstrom/fast-style-transfer) to play around with. Hmm.. interesting to see what can be done but HOW is it done is the q?
 
-## [Deep Traffic](http://selfdrivingcars.mit.edu/deeptrafficjs/) simulator
+### [Deep Traffic](http://selfdrivingcars.mit.edu/deeptrafficjs/) simulator
 
 See the [overview](http://selfdrivingcars.mit.edu/deeptraffic/) for how to tinker with the inputs to train the simple neural network. Interesting to see how inputs drastically effect the quality of the output.
 
 > [DeepTraffic](http://selfdrivingcars.mit.edu/deeptrafficjs/) is a gamified simulation of typical highway traffic. Your task is to build a neural agent – more specifically design and train a neural network that performs well on high traffic roads. Your neural network gets to control one of the cars (displayed in red) and has to learn how to navigate efficiently to go as fast as possible. The car already comes with a safety system, so you don’t have to worry about the basic task of driving – the net only has to tell the car if it should accelerate/slow down or change lanes, and it will do so if that is possible without crashing into other cars.
 
 This neural net uses [reinforcement learning](https://en.wikipedia.org/wiki/Reinforcement_learning) 
+
+### Books to read
+
+- [Grokking Deep Learning by Andrew Trask](https://www.manning.com/books/grokking-deep-learning). This provides a very gentle introduction to Deep Learning and covers the intuition more than the theory.
+- [Neural Networks And Deep Learning](http://neuralnetworksanddeeplearning.com/) by Michael Nielsen. This book is more rigorous than Grokking Deep Learning and includes a lot of fun, interactive visualizations to play with.
+- [The Deep Learning Textbook](http://www.deeplearningbook.org/) from Ian Goodfellow, Yoshua Bengio, and Aaron Courville. This online book has lot of material and is the most rigorous of the three books suggested.
+
+### [Flappy Bird](https://github.com/yenchenlin/DeepLearningFlappyBird)
+
+This is a deep learning agent which plays flappy bird. Not very useful at this point. Need to know to understand/use/train the flappybird playing agent!
+
+So come back to this later.
+
+### Siraj's intro to linear regression
+
+code in the jupyter notebook
+
