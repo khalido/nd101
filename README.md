@@ -63,5 +63,5 @@ So come back to this later.
 
 ### Siraj's intro to linear regression
 
-code in the jupyter notebook
+he walks through linear regression.
 
