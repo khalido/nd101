@@ -63,5 +63,16 @@ So come back to this later.
 
 ### Siraj's intro to linear regression
 
-he walks through linear regression.
+he walks through linear regression, using numpy and then by building a gradient descent model.
+
+
+### moving on to neural nets
+
+Watch this [Backpropagation video](https://www.youtube.com/watch?v=i94OvYb6noo)
+
+- a neural network is an algorithm which identifies patterns in data
+- Backpropagation trains a neural net by updating weights via gradient descent
+- deep learning = many layer neural net + big data + big compute
+
+
 
