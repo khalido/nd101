@@ -24,6 +24,12 @@ Need to know multivariable calculus & linear algebra.
 - [Linear algebra youtube playlist](https://www.youtube.com/playlist?list=PLlXfTHzgMRUKXD88IdzS14F4NxAZudSmv)
 - [Khan Academy's Linear Algebra Intro](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/jacobian/v/jacobian-prerequisite-knowledge)
 
+### Books to read
+
+- [Grokking Deep Learning by Andrew Trask](https://www.manning.com/books/grokking-deep-learning). This provides a very gentle introduction to Deep Learning and covers the intuition more than the theory.
+- [Neural Networks And Deep Learning](http://neuralnetworksanddeeplearning.com/) by Michael Nielsen. This book is more rigorous than Grokking Deep Learning and includes a lot of fun, interactive visualizations to play with.
+- [The Deep Learning Textbook](http://www.deeplearningbook.org/) from Ian Goodfellow, Yoshua Bengio, and Aaron Courville. This online book has lot of material and is the most rigorous of the three books suggested.
+
 # Week 1
 
 The two instructors are [Mat Leonard] & [Siraj Raval](http://www.sirajraval.com/).
@@ -49,12 +55,6 @@ See the [overview](http://selfdrivingcars.mit.edu/deeptraffic/) for how to tinke
 
 This neural net uses [reinforcement learning](https://en.wikipedia.org/wiki/Reinforcement_learning) 
 
-### Books to read
-
-- [Grokking Deep Learning by Andrew Trask](https://www.manning.com/books/grokking-deep-learning). This provides a very gentle introduction to Deep Learning and covers the intuition more than the theory.
-- [Neural Networks And Deep Learning](http://neuralnetworksanddeeplearning.com/) by Michael Nielsen. This book is more rigorous than Grokking Deep Learning and includes a lot of fun, interactive visualizations to play with.
-- [The Deep Learning Textbook](http://www.deeplearningbook.org/) from Ian Goodfellow, Yoshua Bengio, and Aaron Courville. This online book has lot of material and is the most rigorous of the three books suggested.
-
 ### [Flappy Bird](https://github.com/yenchenlin/DeepLearningFlappyBird)
 
 This is a deep learning agent which plays flappy bird. Not very useful at this point. Need to know to understand/use/train the flappybird playing agent!
@@ -68,11 +68,39 @@ he walks through linear regression, using numpy and then by building a gradient 
 
 ### moving on to neural nets
 
-Watch this [Backpropagation video](https://www.youtube.com/watch?v=i94OvYb6noo)
-
 - a neural network is an algorithm which identifies patterns in data
 - Backpropagation trains a neural net by updating weights via gradient descent
 - deep learning = many layer neural net + big data + big compute
 
+## Backpropagation
 
+This is the key to understanding neural nets, so it's important to understand how Backpropagation works. 
+
+- [CS231n Winter 2016 Lecture 4: Backpropagation](https://www.youtube.com/watch?v=59Hbtz7XgjM)
+
+
+## Project 1: Predictin Bike Sharing demand from historical data
+
+[Final Notebook](https://github.com/khalido/nd101-projects/blob/playing-with-numpy/dlnd-your-first-neural-network.ipynb)
+
+# Week 2
+
+## Model Evaluation and Validation
+
+Generalization is better than overfitting. 
+
+R2 score
+- simplest possible model is to take the avg of all values and draw a straight line, then calculate the mean square error
+ - the R2 score is 1 minus the error of our regression model divided by the error of the simplest possible model
+ - if we have a good model, the error will be small compared to the simple model, thus R2 will be close to 1
+ - for a bad model, the ratio of errors will be closer to 1, giving a small R2 values
+
+ from sklearn.metrics import r2_score
+
+### Two types of error
+
+- overfitting
+- underfitting
+
+## Sentiment Analysis with Andrew Trask
 
