@@ -21,7 +21,7 @@ The course recommneds knowing [basic python from here](https://www.udacity.com/c
 Need to know multivariable calculus & linear algebra.
  
 - [Khan Academy Multivariable calculus](https://www.khanacademy.org/math/multivariable-calculus)
-- [Linear algebra youtube playlist](https://www.youtube.com/playlist?list=PLlXfTHzgMRUKXD88IdzS14F4NxAZudSmv)
+- [Linear algebra youtube playlist](https://www.youtube.com/playlist?list=PLlXfTHzgMRUKXD88IdzS14F4NxAZudSmv) or over at [lemma](https://www.lem.ma/web/#/books/VBS92YDYuscc5-lK/landing)
 - [Khan Academy's Linear Algebra Intro](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/jacobian/v/jacobian-prerequisite-knowledge)
 
 ### Books to read
@@ -102,5 +102,34 @@ R2 score
 - overfitting
 - underfitting
 
+
+# Week 3
+
 ## Sentiment Analysis with Andrew Trask
+
+This was a good project - built a simple neural network to classify reviews as negative or positive.
+
+## Intro to TFLearn
+
+Sigmoid activation functions have a max derivate of .25, so errors shrink by 75% or more during backprogation. This means the neural network takes a long time to train. Instead of sigmoid, most DL networks use RLU - which is a supersimple function which outputs max(input, 0). For a +ve inut the output equals the input, and for a -ve input the output is 0. Relu nodes can die if there is a large graident through them, so they are best used with a small learning rate.
+
+For a simple binary classification, the sigmoid function works, but for mulitple outputs, for example reconigizing digits, use the [softmax](https://en.wikipedia.org/wiki/Softmax_function) function. A softmax function squashes outputs to be b/w 0 and 1 and divides them such that the total sum of the output equals 1.
+
+one hot encoding means using a simple vector, like `y=[0,0,0,0,1,0,0,0,0,0]` to represent 4. 
+
+http://tflearn.org/
+
+## RNN
+
+http://colah.github.io/posts/2015-08-Understanding-LSTMs/
+http://karpathy.github.io/2015/05/21/rnn-effectiveness/
+
+## using tflearn to do sentiment Analysis
+
+
+# Week 4
+
+## Siraj's Math for Deep learning
+Need to know statistics, linear algebra and calculus. 
+C
 
