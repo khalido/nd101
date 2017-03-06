@@ -145,17 +145,8 @@ an alternative to Amazon's EC2 gpu machines: [floyd](https://www.floydhub.com/)
 
 Deep learning is a family of techniques which adapts to all sorts of data and problems. the basic techiniques of DL apply to a bunch of diff fields. Neural Networks have been around for decades but had pretty much disappread from the CS science. They came back in a bigway in the 2010's with advances in speech reconizition, computer vision and machine translation. This was enabled by lots of data and cheap gpus.
 
-tensorflow stores data as tensors, which is an onject which can store stuff.
+All the hotness is in my [intro to tensorflow notebook](https://github.com/khalido/nd101/blob/master/intro_to_tensorflow.ipynb).
 
-constant data is stored as a [tf.constant](http://devdocs.io/tensorflow~python/tf/constant)
+# Week 6
 
-```python
-# A is a 0-dimensional int32 tensor
-A = tf.constant(1234) 
-# B is a 1-dimensional int32 tensor
-B = tf.constant([123,456,789]) 
- # C is a 2-dimensional int32 tensor
-C = tf.constant([ [123,456,789], [222,333,444] ])
-```
-
-[tf.placeholder](https://www.tensorflow.org/api_docs/python/tf/placeholder) is used for dynamic data
+Going deeper into tensorflow!
