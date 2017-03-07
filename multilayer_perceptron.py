@@ -1,13 +1,16 @@
 from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("data/mnist", one_hot=True, reshape=False)
-print("mnist data loaded")
+print("Mnist data loaded from data/mnist")
 import tensorflow as tf
 
 # Parameters
 learning_rate = 0.001
-training_epochs = 2 # was 20
+training_epochs = 20 # was 20
 batch_size = 128  # Decrease batch size if you don't have enough memory
 display_step = 1
+
+print('# Paramaters:')
+print('Learning rate:', learning_rate, 'Epochs:', training_epochs, 'batch size:', batch_size)
 
 n_input = 784  # MNIST data input (img shape: 28*28)
 n_classes = 10  # MNIST total classes (0-9 digits)

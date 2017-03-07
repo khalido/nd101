@@ -150,3 +150,26 @@ All the hotness is in my [intro to tensorflow notebook](https://github.com/khali
 # Week 6
 
 Going deeper into tensorflow!
+
+### Preventing overfitting
+
+**Early Termination**: stop training soon as you stop improving
+
+**Regulariation** applies constrains - L2 regularization adds another term to the loss which penalizes large weights.
+
+**Dropout** is an important technique - it randomly stops half the signals flowing throgh a layer, and multiplies by 2 the remaining signals. This forces the NN to make redundant representations for everything - so with only partial info it can predict the right answer.
+During testing, you cancel the dropout to maximize the predictive power of the model.
+
+**get rid of unnecessary info** For example, when reconigizing letters, the colors don't matter, so transform R,G,B values into grayscale by (R+G+B)/2.
+
+**weight sharing** say you have two kittens in the same image. so it makes sense to train the same part of the network on each kitten. we do this be weight sharing.
+
+**statistical invariants** things which don't change across time and space, like say the word kitten in a text, it always refers to kittens.
+
+## Convolution Networks, or CNN
+
+A CNN breaks up an image into many pieces and learns to first reconigzie basic shapes, lines, curves, then the more complex objects as combinations of the simpler shapes, then classifies the image by combining the complex objects together. A CNN can have many layers, with each layer capturing a different level of complexity.
+
+[good video for understanding cnn networks](https://www.youtube.com/watch?v=ghEmQSxT6tw) - though not necessary.
+
+It seems the time is now to read [this book on neural networks](http://neuralnetworksanddeeplearning.com/)
