@@ -170,6 +170,37 @@ During testing, you cancel the dropout to maximize the predictive power of the m
 
 A CNN breaks up an image into many pieces and learns to first reconigzie basic shapes, lines, curves, then the more complex objects as combinations of the simpler shapes, then classifies the image by combining the complex objects together. A CNN can have many layers, with each layer capturing a different level of complexity.
 
-[good video for understanding cnn networks](https://www.youtube.com/watch?v=ghEmQSxT6tw) - though not necessary.
+Resources:
 
-It seems the time is now to read [this book on neural networks](http://neuralnetworksanddeeplearning.com/)
+- It seems the time is now to read [this book on neural networks](http://neuralnetworksanddeeplearning.com/) and go through [cs231](http://cs231n.github.io/).
+- This [article](https://hackernoon.com/learning-ai-if-you-suck-at-math-p5-deep-learning-and-convolutional-neural-nets-in-plain-english-cda79679bbe3#.yop1x41dy) is a nice simple overview of neural networks and builds a simple covnet network using keras.
+- [A beginers guide to understanding n=cnovlutional networks](https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/)
+
+## Siraj's Image Classification
+
+## Project 2
+
+Goal is to Classify images from the [CIFAR dataset](https://www.cs.toronto.edu/~kriz/cifar.html).
+
+A good time to watch this [video intro to Tensorflow](https://www.youtube.com/watch?v=vq2nnJ4g6N0).
+
+My [final project notebook](https://github.com/khalido/nd101-projects/blob/master/dlnd_image_classification.ipynb).
+
+Note: I only got 65% accuracy, but that was at 20 epochs. Running it at a hundred or so shuold bump up the accuracy over 70%, but I got tired of waiting for the model to train.
+
+# Week 7
+
+## Intro to Recurrent Neural Networks
+
+http://colah.github.io/posts/2015-08-Understanding-LSTMs/
+
+## aside
+
+[Deep Learning chat](https://www.youtube.com/watch?v=8UQzJaa0HPU&feature=youtu.be)
+https://deeplearning4j.org/word2vec
+
+# Week 8
+
+## Embeddings and Word2vec
+
+[Word2Vec](https://en.wikipedia.org/wiki/Word2vec)
