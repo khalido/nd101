@@ -8,6 +8,7 @@ Notes & files for [Udacity's Deep Learning intro course](https://www.udacity.com
 - Watch [Andrew NG: Deep Learning in Practice](https://youtu.be/LFDU2GX4AqM) (34 minutes)
 - Go though [UD730 deep learning course](https://classroom.udacity.com/courses/ud730/) on Udacity
 - Watch [Learn tensorflow 3 hour video](https://cloud.google.com/blog/big-data/2017/01/learn-tensorflow-and-deep-learning-without-a-phd)
+- http://rodneybrooks.com/patrick-winston-explains-deep-learning/
 
 ### Python resources
 
@@ -204,3 +205,75 @@ https://deeplearning4j.org/word2vec
 ## Embeddings and Word2vec
 
 [Word2Vec](https://en.wikipedia.org/wiki/Word2vec)
+
+Notebook: https://github.com/udacity/deep-learning/tree/master/embeddings
+
+# Week 9
+
+## TensorBoard
+
+This is really useful to see the initial model, and then to see what is happening while it's training.
+
+- [tensorboard intro](https://youtu.be/eBbEDRsCmv4)
+- [basic tensorboard intro](https://www.tensorflow.org/get_started/summaries_and_tensorboard)
+
+Can also be used for [hyperparameter search](https://github.com/udacity/deep-learning/blob/master/tensorboard/Anna_KaRNNa_Hyperparameters.ipynb) by selecting diff combinations of parameters, writing them to a logstring and viewing the diff runs in tensorboard all nicely charted out.
+
+todo: make a simple mnist NN with tensorboard summaries of different parameters. something like:
+
+```python
+for lstm_size in [128,256,512]:
+    for num_layers in [1, 2]:
+        for learning_rate in [0.002, 0.001]:
+            log_string = 'logs/4/lr={},rl={},ru={}'.format(learning_rate, num_layers, lstm_size)
+            writer = tf.summary.FileWriter(log_string)
+```
+
+# Week 10
+
+RNN's and language generation
+
+## how to make a text summarizer
+.....
+
+## Weight Initialization
+
+Weights are important. If all the weights start of the same, it makes it hard to update the weights. random weights work much better. Tensorflow's [tf.random_uniform()](https://www.tensorflow.org/api_docs/python/tf/random_uniform) is a good weight initilization function. Be default, tf.random.uniform picks float values uniformly spread b/w 0 and 1, which is decent, but we can do better.
+
+Smart people have tested out different weights, and it seems using weights uniformly distributed around zero with a std dev around 0.1 works well, with tails cut off. Tensorflow has a built in function:
+
+[tf.truncated_normal](https://www.tensorflow.org/api_docs/python/tf/truncated_normal) generates a random distribution around zero with values > 2 std devs from the mean repicked. So making 3 weights would look someething like:
+
+```python
+weights = [
+    tf.Variable(tf.truncated_normal(layer_1_weight_shape, stddev=0.1)),
+    tf.Variable(tf.truncated_normal(layer_2_weight_shape, stddev=0.1)),
+    tf.Variable(tf.truncated_normal(layer_3_weight_shape, stddev=0.1))
+```
+
+todo: run a simple network on MNIST with different weights and see in tensorboard
+todo: find some approchable resources on weights
+
+### weight initilizaiton resources
+
+- [cs231n weight initilization](http://cs231n.github.io/neural-networks-2/#init) - supports the above method of small random weights centered on zero, but warns that smaller numbers aren't always better.
+
+
+## Sentiment Prediction RNN
+
+## Project 3 - Generate a TV Script
+
+# Week 11
+
+## Transfer Learning
+
+How to use a pretrained network on a new problem
+
+
+# Week 12
+
+## Sequence to Sequence
+
+# Week 13
+
+#3 Project 4 - Translation
