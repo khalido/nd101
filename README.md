@@ -238,11 +238,13 @@ RNN's and language generation
 
 ## Weight Initialization
 
-Weights are important. If all the weights start of the same, it makes it hard to update the weights. random weights work much better. Tensorflow's [tf.random_uniform()](https://www.tensorflow.org/api_docs/python/tf/random_uniform) is a good weight initilization function. Be default, tf.random.uniform picks float values uniformly spread b/w 0 and 1, which is decent, but we can do better.
+The initial value of weights is very important to how well a NN trains. If all the weights start of the same, it makes it hard to update the weights since they end up all giving similar outputs, making it hard for the NN to learn. 
 
-Smart people have tested out different weights, and it seems using weights uniformly distributed around zero with a std dev around 0.1 works well, with tails cut off. Tensorflow has a built in function:
+Random weights work much better. Tensorflow's [tf.random_uniform()](https://www.tensorflow.org/api_docs/python/tf/random_uniform) is a good weight initilization function. Be default, tf.random.uniform picks float values uniformly spread b/w 0 and 1, which is decent, but we can do better.
 
-[tf.truncated_normal](https://www.tensorflow.org/api_docs/python/tf/truncated_normal) generates a random distribution around zero with values > 2 std devs from the mean repicked. So making 3 weights would look someething like:
+Smart people have tested out different initial weights, and it seems using weights distributed around zero with a std dev around 0.1 works well, with tails cut off. Tensorflow has a built in function: 
+
+[tf.truncated_normal](https://www.tensorflow.org/api_docs/python/tf/truncated_normal) which generates a random normal distribution around zero with values > 2 std devs from the mean repicked. So making 3 weights would look someething like:
 
 ```python
 weights = [
@@ -250,6 +252,7 @@ weights = [
     tf.Variable(tf.truncated_normal(layer_2_weight_shape, stddev=0.1)),
     tf.Variable(tf.truncated_normal(layer_3_weight_shape, stddev=0.1))
 ```
+A normal distribution means that the weights will tend to be closer to the mean rather than uniformly distributed.
 
 todo: run a simple network on MNIST with different weights and see in tensorboard
 todo: find some approchable resources on weights
@@ -261,14 +264,20 @@ todo: find some approchable resources on weights
 
 ## Sentiment Prediction RNN
 
+
 ## Project 3 - Generate a TV Script
+
+This was an interesting project - to generate new text after training a RNN network on a subset of Simpsons scripts, set in Moe's Cavern.
+
+[Completed project 3 notebook](https://github.com/khalido/nd101-projects/blob/master/dlnd_tv_script_generation.ipynb)
 
 # Week 11
 
 ## Transfer Learning
 
-How to use a pretrained network on a new problem
+Training nerual networks can take a long time so we can take an exisiting pretrained network and use that to extract features or as the initial network to further build upon. Here, we use [VGGNet](https://arxiv.org/pdf/1409.1556.pdf). 
 
+I'm using a [pretrained VGG network from here](https://github.com/machrisaa/tensorflow-vgg).
 
 # Week 12
 
