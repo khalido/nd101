@@ -279,10 +279,50 @@ Training nerual networks can take a long time so we can take an exisiting pretra
 
 I'm using a [pretrained VGG network from here](https://github.com/machrisaa/tensorflow-vgg).
 
+## Language Translation
+
 # Week 12
 
 ## Sequence to Sequence
+is a kind of RNN network. 
 
-# Week 13
+[tf.contrib.seq2seq](https://www.tensorflow.org/api_docs/python/tf/contrib/seq2seq)
 
-#3 Project 4 - Translation
+Useful posts
+- [Text Summarization with Amazon Reviews](https://medium.com/towards-data-science/text-summarization-with-amazon-reviews-41801c2210b)
+- [Seq2Seq talk](https://www.youtube.com/watch?v=G5RY_SUJih4)
+- [Stanford lectures on NLP using deep learning](https://www.youtube.com/playlist?list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6)
+
+## How to make a chatbot
+
+Train a DNN to learn text and answers. Facebook has some [datasets to learn on](https://research.fb.com/downloads/babi/). 
+
+Using Keras it's relative straightforward. See [this implementation](https://github.com/fchollet/keras/blob/master/examples/babi_rnn.py).
+
+## Reinforcement learning
+
+Use rewards when things be done right. Here we look at Q-Learning.
+Using negative rewards for bad stuff, and postiive rewards for good stuff, you train an agent to seek out the max reward path, using a q-table which stores rewards for each state and action possible from that state. 
+
+[OpenAI Gym](https://gym.openai.com) has lots of implementations.
+
+[basic RL](https://medium.com/@tuzzer/cart-pole-balancing-with-q-learning-b54c6068d947)
+
+## Project 4 - Translation
+
+use a rnn to translate english to french.
+
+Project is built on TF 1.0, so see [release notes](https://github.com/tensorflow/tensorflow/blob/master/RELEASE.md) for later versions as TF changed some RNN bits.
+
+**Parameters which sould give > 90% accuracy:**
+
+- epochs = 3
+- batch_size = 256
+- rnn_size = 128
+- num_layers = 2
+- encoding_embedding_size = 256
+- decoding_embedding_size = 256
+- learning_rate = 0.005
+- keep_probability = 0.9
+
+
