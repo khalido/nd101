@@ -314,7 +314,15 @@ use a rnn to translate english to french.
 
 Project is built on TF 1.0, so see [release notes](https://github.com/tensorflow/tensorflow/blob/master/RELEASE.md) for later versions as TF changed some RNN bits.
 
-**Parameters which sould give > 90% accuracy:**
+I had a problem with training times. Even on a GPU it took forever. This is with relatively limited data, with a decently sized data it will take a looong time!
+
+Questions to ponder:
+
+- should the encoding & decoding embed size be exactly the vocab size?
+
+
+
+**Parameters which should give > 90% accuracy:**
 
 - epochs = 3
 - batch_size = 256
@@ -325,4 +333,19 @@ Project is built on TF 1.0, so see [release notes](https://github.com/tensorflow
 - learning_rate = 0.005
 - keep_probability = 0.9
 
+## GANS
+
+Gans use a differentiable function represented by a NN to transform an output from an input (generally random noise?). 
+
+A second network, called the discriminator, which is just a regular NN classifier which has been trained on real images, gives the generated image a probablity of being real or fake. The discriminator receives a mix of real images and generated images.
+
+Over time, the generator gets good at generating images which passes the discrimator's test. 
+
+Game theory tells us that the two NN's should come to a equilibrium where neither NN can improve their situation.
+ 
+
+- [GAN by Example using Keras](https://medium.com/towards-data-science/gan-by-example-using-keras-on-tensorflow-backend-1a6d515a60d0)
+- [another blog post](https://medium.com/intuitionmachine/deep-adversarial-learning-is-finally-ready-and-will-radically-change-the-game-f0cfda7b91d3)
+- [Original GAN paper](https://arxiv.org/pdf/1406.2661.pdf)
+- [OpenAI GAN explainer](https://blog.openai.com/generative-models/)
 
