@@ -342,10 +342,48 @@ A second network, called the discriminator, which is just a regular NN classifie
 Over time, the generator gets good at generating images which passes the discrimator's test. 
 
 Game theory tells us that the two NN's should come to a equilibrium where neither NN can improve their situation.
+
+We train both networks alternately - look up best practices.
  
 
 - [GAN by Example using Keras](https://medium.com/towards-data-science/gan-by-example-using-keras-on-tensorflow-backend-1a6d515a60d0)
 - [another blog post](https://medium.com/intuitionmachine/deep-adversarial-learning-is-finally-ready-and-will-radically-change-the-game-f0cfda7b91d3)
 - [Original GAN paper](https://arxiv.org/pdf/1406.2661.pdf)
 - [OpenAI GAN explainer](https://blog.openai.com/generative-models/)
+- [Quora GANs topic](https://www.quora.com/topic/Generative-Adversarial-Networks-1)
+
+### Batch normalization
+
+This greatly aids deep networks to learn faster, as well so stops them flaking out and killing too many neurons.
+
+### Face generation project
+
+A GAN which generates mnist images and faces.
+Relatively straigtforward, but adding in [batch normalization](https://github.com/udacity/deep-learning/blob/master/batch-norm/Batch_Normalization_Lesson.ipynb) involves some tensorflow kungfu. Doing this project in TF made me yearn for Keras. 
+
+Specifically, the [batch_norm layer in TF](https://www.tensorflow.org/api_docs/python/tf/layers/batch_normalization) isn't magical enough, so we have to wrap the train operations inside tf.control_dependencies block so the batch normalization layers get updated. The below is the code from [Udacty](https://github.com/udacity/deep-learning/blob/master/dcgan-svhn/DCGAN.ipynb) but since I added batch norm to both the generator and the discriminator this didn't work for me:
+
+```python
+with tf.control_dependencies(tf.get_collection(tf.GraphKeys.UPDATE_OPS)):
+        d_train_opt = tf.train.AdamOptimizer(learning_rate, beta1=beta1).minimize(d_loss, var_list=d_vars)
+        g_train_opt = tf.train.AdamOptimizer(learning_rate, beta1=beta1).minimize(g_loss, var_list=g_vars)
+```
+
+After much googling and help from the forums, this worked:
+
+```python
+# need this to make batch normalization work properly during inference
+    update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
+    g_updates  = [opt for opt in update_ops if opt.name.startswith('generator')]
+    
+    with tf.control_dependencies(g_updates):
+        d_train_opt = tf.train.AdamOptimizer(learning_rate, beta1).minimize(d_loss, var_list=d_vars)
+        g_train_opt = tf.train.AdamOptimizer(learning_rate, beta1).minimize(g_loss, var_list=g_vars)
+```
+
+Putting this here becuase there must be better/simpler easier way to do batch_norm without getting into the graph bowels of tensorflow.
+
+todo: reimplement in Keras
+
+[Project notebok](https://github.com/khalido/nd101-projects/blob/master/dlnd_face_generation.ipynb)
 
